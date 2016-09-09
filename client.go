@@ -188,8 +188,8 @@ func (c *Client) Query(projectID, datasetID, query string, max int) ([][]interfa
 	return c.makeRows(results.Schema, results.Rows), nil
 }
 
-// QueryWithWriteTruncate execute query with overwriting table
-func (c *Client) QueryWithWriteTruncate(projectID, datasetID, tableID, query string, max int) ([][]interface{}, error) {
+// InsertQueryResultAfterTruncate execute query with overwriting table
+func (c *Client) InsertQueryResultAfterTruncate(projectID, datasetID, tableID, query string, max int) ([][]interface{}, error) {
 
 	tableref := &bigquery.TableReference{
 		ProjectId: projectID,
