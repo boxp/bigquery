@@ -34,6 +34,11 @@ func (c *Composer) Query(client *Client, query string) ([][]interface{}, error) 
 	return client.Query(c.ProjectID, c.DatasetID, query, c.MaxResults)
 }
 
+// QueryWithWriteTruncate execute query with overwriting table
+func (c *Composer) QueryWithWriteTruncate(client *Client, tableID, query string) ([][]interface{}, error) {
+	return client.QueryWithWriteTruncate(c.ProjectID, c.DatasetID, tableID, query, c.MaxResults)
+}
+
 func (c *Composer) PagingQuery(client *Client, query string) ([][]interface{}, []string, error) {
 	return client.PagingQuery(c.ProjectID, c.DatasetID, query, c.MaxResults)
 }
